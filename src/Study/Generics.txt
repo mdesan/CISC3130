@@ -1,0 +1,47 @@
+Generics naming conventions
+
+E - Element (used extensively by the Java Collections Framework)
+
+K - Key
+
+N - Number
+
+T - Type
+
+V - Value
+
+S, U, V etc. - 2nd, 3rd, 4th type
+----------------------------------------------------------------------------------------
+A wildcard describes a family of types.  There are 3 different flavors of wildcards:
+
+    " ? " - the unbounded wildcard. It stands for the family of all types.
+    " ? extends Type " - a wildcard with an upper bound. It stands for the family of all types that are subtypes of Type , type Type being included.
+    " ? super Type " - a wildcard with a lower bound. It stands for the family of all types that are supertypes of Type , type Type being included.
+
+-----------------------------------------------------------------------------------------
+
+| Feature        | `E` (Type Parameter)         | `?` (Wildcard)             |
+|---------------|----------------------------|----------------------------|
+| Where it's used | Class or method definitions | Method parameters (typically) |
+| Flexibility   | Fixed to a specific type    | Can accept multiple types  |
+| Read/Write    | Can both read and write     | Can only read (without bounds) |
+| Example       | `class Box<E> {}`            | `void method(Box<?> box) {}` |
+
+Use E when designing a class/method that operates on a known type.
+Use ? when working with unknown but related types in method parameters.
+
+---------------------------------------------------------------------------------------
+
+WHEN TO DECLARE <E> IN GENERICS (classes + methods)
+
+EXAMPLE 1:
+public static <E extends Comparable<E>>  E max(){
+    }
+the <E extends Comparable<E>> is needed in the method header because the compiler needs to know what E is.
+
+EXAMPLE 2:
+public interface BoundedList<E> {
+    default E max(){
+     }
+}
+max method doesnt need the <E extends Comparable<E>>  because it was already defined in the class header.
