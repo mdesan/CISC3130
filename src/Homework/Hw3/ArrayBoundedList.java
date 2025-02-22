@@ -1,5 +1,7 @@
 package Homework.Hw3;
 
+import java.util.Iterator;
+import java.util.NoSuchElementException;
 import java.util.Objects;
 
 public class ArrayBoundedList<E> implements BoundedList<E>{
@@ -152,6 +154,40 @@ public class ArrayBoundedList<E> implements BoundedList<E>{
 
     }
 
+
+    //for each loops call this method implicitly
+    // this method returns a new custom iterator
+    @Override
+    public Iterator<E> iterator() {
+        return new ArrayBoundedListIterator();
+    }
+
+
+
+    private class ArrayBoundedListIterator implements Iterator<E>{
+        int index;
+
+        public ArrayBoundedListIterator(){
+            index =0;
+        }
+
+
+        @Override
+        public boolean hasNext() {
+            return index < size;
+        }
+
+        @Override
+        public E next() {
+            if(!hasNext()){
+                throw new NoSuchElementException();
+            }
+            E element = arr[index];
+            index++;
+            return element;
+
+        }
+    }
 
 
 }

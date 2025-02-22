@@ -3,7 +3,7 @@ package Homework.Hw3;
 import java.util.List;
 import java.util.Objects;
 
-public interface BoundedList<E> {
+public interface BoundedList<E> extends Iterable<E> {
     /**
      * A capacity-bounded list of String elements. Each list has a capacity, which is the maximum number of elements that the list can hold at one time.
      * Each list also has a size, which is the number of elements currently held by the list. The elements of a list have indexes: the first element
@@ -26,7 +26,7 @@ public interface BoundedList<E> {
      * Adds the specified element to the end of this list, if the list isn't already full.
      * For example, if {@code list} is a StringBoundedList with capacity 10 that represents {@code [a, b, c]},
      * then saying {@code list.add("d")} makes {@code list} represent {@code [a, b, c, d]}.
-     * @param s the String to add
+     * @param e the String to add
      * @throws IllegalStateException if this list is already full
      */
     void add(E e);
@@ -128,6 +128,8 @@ public interface BoundedList<E> {
         }
         return other;
     }
+
+
 
 
 

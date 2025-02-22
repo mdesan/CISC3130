@@ -52,6 +52,41 @@ public class Feb20 {
         - view collection do not store elements
 
 
+        ####HOMEWORK 4#####
+
+        //
+        List<Integer> list = new ArrayList<>(List.of(5, 10, 15, 20, 25));
+        List<Integer> unmodifiable = Collections.unmodifiableList(list);
+        list.remove(2);
+        list.set(2, 22);
+        System.out.println(unmodifiable); //determine output
+
+        the unmodifiableList creates a read only view of the list. It does not create a new list
+        When list chnages,unmodifable changes as well.
+        You cannot make changes to the unmodifiable list directly.
+
+        //
+        List<Integer> list = new ArrayList<>(List.of(10, 15, 20, 25, 5));
+        List<Integer> sublist = list.subList(2, 5);
+        sublist.remove(1);
+        sublist.sort(Comparator.naturalOrder());
+        System.out.println(list);
+
+        //
+        List<Integer> list = new ArrayList<>(List.of(10, 15, 20, 25, 5));
+        List<Integer> sublist = list.subList(2, 5);
+        sublist.remove(1);
+        sublist.sort(Comparator.naturalOrder());
+        System.out.println(list);
+
+        sublist is 20 25 5
+        sublist removes inddex 1 which is 25. list also removes 25
+        sublist sorts to 5 20
+        list is now [10 15 5 20] bc 5 and 20 sorted in sublist
+
+
+
+
 
 
 

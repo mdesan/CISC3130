@@ -60,12 +60,13 @@ public class Feb11 {
 
 }
 //generic class T is a type parameter
-class Pair<T>{
-    private T first, second;
+//class Pair<T>{
+//    private T first, second;
+//
+//    private pair(T first, T second){
+//        this.first = first;
+//        this.second=second;
+//    }
 
-    private pair(T first, T second){
-        this.first = first;
-        this.second=second;
-    }
 
-}
+
