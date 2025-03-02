@@ -1,6 +1,7 @@
 package Homework.Hw4;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class ListUtils {
@@ -15,7 +16,7 @@ public class ListUtils {
     }
 
     public static void swapFirstAndLast(List<String> list){
-        String temp = list.getFirst();
+        String temp = list.get(0);
 
         list.set(0, list.get(list.size()-1));
         list.set(list.size()-1,temp);
@@ -48,18 +49,22 @@ public class ListUtils {
     }
 
     public static void printSorted(List<String> list){
-        String s = "";
 
-       for(int i =0;i<list.size();i++ ){
+        if(!list.isEmpty()){
+            List<String> sorted = new ArrayList<>(list);
 
-       }
+            Collections.sort(sorted);
+
+            for(int i =0; i<list.size();i++){
+                if(i==sorted.size()-1){
+                    System.out.print(sorted.get(i));
+                    System.out.println();
+                }
+                else{
+                    System.out.print(sorted.get(i) + " ");
+                }
+            }
+        }
+
     }
-
-
-
-
-
-
-
-
 }

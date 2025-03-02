@@ -128,9 +128,4 @@ public interface BoundedList<E> extends Iterable<E> {
         }
         return other;
     }
-
-
-
-
-
 }

@@ -98,6 +98,7 @@ static void m(List<? super SomeType> list) {
     }
 
     //6
+    //iterative version
     public static <T extends Comparable<T>> int binarySearch(T[] list, T item){
 
         int low =0;
@@ -105,7 +106,58 @@ static void m(List<? super SomeType> list) {
 
 
         while(low<=high) {
+            int mid = (high + low)/2; //could  not work for very large highs or low
+            if (item.compareTo(list[mid]) == 0 ) {
+                return mid;
+            } else if (item.compareTo(list[mid]) < 0) {
+                high = mid -1;
+
+            } else if (item.compareTo(list[mid]) > 0) {
+                low = mid+1;
+
+            }
+
+        }
+        return -1;
+
+    }
+
+    //iterative version that is fixed to prevent the bug
+    public static <T extends Comparable<T>> int binarySearch2(T[] list, T item){
+
+        int low =0;
+        int high = list.length-1;
+
+
+        while(low<=high) {
             int mid = (high + low)/2;
+            //could  not work for very large highs or low
+            if (item.compareTo(list[mid]) == 0 ) {
+                return mid;
+            } else if (item.compareTo(list[mid]) < 0) {
+                high = mid -1;
+
+            } else if (item.compareTo(list[mid]) > 0) {
+                low = mid+1;
+
+            }
+
+        }
+        return -1;
+
+    }
+
+    //recursive version
+
+    //iterative version
+    public static <T extends Comparable<T>> int binarySearchRecursive(T[] list, T item){
+
+        int low =0;
+        int high = list.length-1;
+
+
+        while(low<=high) {
+            int mid = (high + low)/2; //could  not work for very large highs or low
             if (item.compareTo(list[mid]) == 0 ) {
                 return mid;
             } else if (item.compareTo(list[mid]) < 0) {
