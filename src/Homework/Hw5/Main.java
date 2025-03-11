@@ -97,20 +97,56 @@ public class Main {
         return false;
     }
 
+    //optional (for this one try to fix triple consecutive)
+    public static void removeConsecutiveDuplicates(List<?> list){
+
+
+        if(list.size()>1){
+
+            if(Objects.equals(list.get(0),list.get(1))){
+                list.remove(0);
+            }
+            List<?> subList = list.subList(1, list.size());
+
+           removeConsecutiveDuplicates(subList);
+        }
+    }
+//    public static void removeConsecutiveDuplicates(List<?> list) {
+//        if (list.size() > 1) {
+//            if (Objects.equals(list.get(0), list.get(1))) {
+//                list.removeFirst();
+//            }
+//
+//            removeConsecutiveDuplicates(list.subList(1, list.size()));
+//        }
+//    }
+
+
+
+
+
+
+
+
 
 
 
     public static void main(String[] args){
         List<Integer> list = new ArrayList<>();
         list.add(1);
-        list.add(1);
+        list.add(3);
+        list.add(3);
+        list.add(2);
         list.add(4);
-        list.add(5);
-//        list.add(1);
-        list.add(8);
-        list.add(33);
+        list.add(4);
+        list.add(4);
 
-        System.out.println(isSorted(list));
+
+
+
+        System.out.println(list);
+        removeConsecutiveDuplicates(list);
+        System.out.println(list);
 
     }
 
