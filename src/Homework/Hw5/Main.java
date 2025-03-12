@@ -98,34 +98,38 @@ public class Main {
     }
 
     //optional (for this one try to fix triple consecutive)
-    public static void removeConsecutiveDuplicates(List<?> list){
-
-
-        if(list.size()>1){
-
-            if(Objects.equals(list.get(0),list.get(1))){
-                list.remove(0);
-            }
-            List<?> subList = list.subList(1, list.size());
-
-           removeConsecutiveDuplicates(subList);
-        }
-    }
-//    public static void removeConsecutiveDuplicates(List<?> list) {
-//        if (list.size() > 1) {
-//            if (Objects.equals(list.get(0), list.get(1))) {
-//                list.removeFirst();
+//    public static void removeConsecutiveDuplicates(List<?> list){
+//
+//
+//        if(list.size()>1){
+//            List<?> subList ;
+//            if(Objects.equals(list.get(0),list.get(1))){
+//                list.remove(0);
+//                subList = list.subList(0, list.size());
+//            }
+//            else{
+//                subList = list.subList(1, list.size());
 //            }
 //
-//            removeConsecutiveDuplicates(list.subList(1, list.size()));
+//            removeConsecutiveDuplicates(subList);
 //        }
 //    }
+    public static void removeConsecutiveDuplicates(List<?> list) {
+        if (list.size() > 1) {
+            if (Objects.equals(list.get(0), list.get(1))) {
+                list.removeFirst();
+            }
+
+            removeConsecutiveDuplicates(list.subList(1, list.size()));
+        }
+    }
+
+    //Optional . can use addFirst(E element) method
+    public static <E> List<E> withConsecutiveDuplicatesRemoved(List<E> list){
 
 
 
-
-
-
+    }
 
 
 
@@ -134,12 +138,14 @@ public class Main {
     public static void main(String[] args){
         List<Integer> list = new ArrayList<>();
         list.add(1);
-        list.add(3);
-        list.add(3);
         list.add(2);
+        list.add(3);
         list.add(4);
         list.add(4);
         list.add(4);
+
+
+
 
 
 
