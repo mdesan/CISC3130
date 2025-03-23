@@ -1,4 +1,0 @@
-RECURSION
-
-* the number of levels of the stack is equal to the number of method calls in the recursive method.
-* 

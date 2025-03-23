@@ -1,5 +1,9 @@
 package Homework.Hw7;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 public class LeetCodeProblems {
 
     //has to run O(1)
@@ -44,15 +48,76 @@ public class LeetCodeProblems {
     }
 
     //has to run O(n)
-    public int buyChoco(int[] prices, int money) {
+    //the intuitive approach would be O(n^2). here is the O(n^2) approach.
+//    public static int buyChoco(int[] prices, int money) {
+//        int best = Integer.MIN_VALUE;
+//
+//
+//        for (int i = 0; i < prices.length; i++) {
+//            for (int j = i + 1; j < prices.length; j++) {
+//                int sum = prices[i] + prices[j];
+//                if (((money - sum) > best) && ((money - sum >= 0))) {
+//                    best = money - sum;
+//                }
+//            }
+//        }
+//        if (best == Integer.MIN_VALUE){
+//            return money;
+//    }
+//        return best;
+//
+//    }
+
+    // optimal approach O(n)
+    public static int buyChoco(int[] prices, int money) {
+
+        int min = Integer.MAX_VALUE;
+
+        int minIndex =-1;
+
+        //loop finds the minimum
+        for(int i=0;i< prices.length;i++){
+            if(prices[i]<min){
+                min=prices[i];
+                minIndex=i;
+            }
+        }
+
+        //loop finds the second minimum
+        int secMin = Integer.MAX_VALUE;
+        for(int i =0;i<prices.length;i++){
+            if(i!=minIndex){
+                if(prices[i]<secMin){
+                    secMin=prices[i];
+                }
+            }
+        }
+
+        int result =  money - (min + secMin);
+
+        if(result < 0){
+            return money;
+        }
+
+        return result;
+
+    }
+
+    //has to be O(n)
+    public static int maxProduct(int [] nums){
 
     }
 
 
-    public static void main(String [] args ){
-        int [] nums = {3,1,2,0,5};
 
-        System.out.println(missingNumber(nums));
+
+
+
+
+    public static void main(String [] args ){
+        int [] nums = {98,54,6,34,66,63,52,39};
+
+        System.out.println(buyChoco(nums, 62));
     }
 
 }
