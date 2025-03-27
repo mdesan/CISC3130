@@ -104,9 +104,9 @@ public class LeetCodeProblems {
     }
 
     //has to be O(n)
-    public static int maxProduct(int [] nums){
-
-    }
+//    public static int maxProduct(int [] nums){
+//
+//    }
 
 
 
