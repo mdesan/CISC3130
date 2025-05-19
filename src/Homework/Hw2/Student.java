@@ -17,10 +17,13 @@ public class Student {
     }
 
 
+
     //getters
     public String getFirst(){
         return this.first;
+
     }
+
     public String getLast(){
         return this.last;
     }
@@ -34,6 +37,8 @@ public class Student {
 
     @Override
     public String toString(){
+
+
         return this.first + " " + this.last + " " + this.id + " " + this.grade;
     }
 
